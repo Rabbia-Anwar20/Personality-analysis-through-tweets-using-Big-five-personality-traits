@@ -1,0 +1,76 @@
+17,731 total words in mam sania file(NRC-emotion-lexicon-wordlevel-alphabetized)
+
+do separate sentiment for emojis than combine it with text,
+
+do citation of every libraries,
+
+
+weeknesses of our system,
+our scrapping method doesn't scrap images and their sentiment,it only works on text and emojis,
+
+--it is basically clusterig problem,not
+
+--check mam data or mukaram's in case you go for supervised...
+
+--pehlay questionare say traits nikalay jatay thay,recent study say pta chla hm us text say b traits 
+nikal sktay hain jo particular user nay likha ho based(based frequency of words he/she wrotes),hm nay
+sentiment b nikaalnay hain,
+
+--ANN,SVM walay me page 2 pr marked,
+
+--ANN,SVM walay me only tf-idf pr kam ho rha hai no sentiment,but unho nay verification questionair he
+he use kia hai
+
+--five factors Openness, Conscientiousness, Extroversion ,Agreeableness, and Neuroticism (OCEAN)
+
+--how to validate if I go for supervised,
+
+--wrote about app,web or android,insipirational/motivational video/book suggestion,emotions from mam
+sania csv,
+
+--Automated Personality Classification (APC)
+
+--In mental health diagnosis, certain diagnoses correlate with certain personality traits.
+
+--deep learning based personality detection page 1 marked,
+
+--traits labels classifier is binary,if lie than 1 else 0
+
+--deep learning based personality detection used CNN five different networks, all with the same 
+architecture
+
+--15 questions for validations,,,
+
+--vader library also doing automatically sentiment of emojis...
+
+--add vader work in FYP paper,
+
+--collect 50 tweets,for each first +ve and -ve,than aply word frequenecy to check in which
+trait it lies,for whole +ve and -ve take avg summ all out from vader and divide by 50(total tweets) 
+ and for traits take avg for each trait,every trait output trait in the form of 5 length array
+ with values of 1 and 0,1 for which trait words occur and 0 for not,(what if words occur from 
+more than one trait,think it)
+
+--just calc the sentiment and NN will learn it a/c to outputs,
+--I stuck at,(what if words occur from  more than one trait,think it)
+
+--I got it,check PSP-PID file im mam sania folder,first check every tweet on the basis of frequency
+ of words and assign value from csv than take avg of all tweets,if no found any word a/c to any
+ particular trait assign value one,
+-another method get sentiment using textblob,
+
+--finally,first get frequencey(bag of words)(like avg of all words a/c to trait) than multiply it with 
+ poolarity(text blob.polarity),  predict personality with higher value,
+bag of words=appearance of words counting
+--text blob use ML technique for classifying polarity,
+
+--use compound from vader and multiply it with avg of bag of words,(do for single tweet than get the avg)
+--remove stop words,do stemming(check if there is need of stemming or not,dont do it),
+--now think about model you should use,
+--and final app,recommend books,talks,try to recommend qurani ayats and ahadith as well imam's quotes,
+--skip image processing,
+---if compound is 0 multiply avg with 1,
+--what if text contain many words from a trait but has -ve sentiment value?think about it..
+--no need of removing RT(retweet) mentions and links,vader does that automatically,
+--but it is good to remove them so bag of words doesn't include garbage value(garbage value means
+ counting of RT,mentions of links),
