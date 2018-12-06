@@ -74,3 +74,27 @@ bag of words=appearance of words counting
 --no need of removing RT(retweet) mentions and links,vader does that automatically,
 --but it is good to remove them so bag of words doesn't include garbage value(garbage value means
  counting of RT,mentions of links),
+--why words are repeating in same trait or in different :'(
+--there is an idea what if I collect all adjectives related to all traits
+--ask from sir,bag of firds give good results,but we are unable to find doing it on the basis sentiment,
+ of sentiment,
+--session with sir tafseer,like chlo hm nay us data pr model train kr lia jo hmaray pass essays k nam say hai,
+ but jb realtime pr tweet uthaay gain to us me say traits ksay nikaalain bag of words say,ya sentiment 
+ if sentiment then wohi issue k sirf polarity trait ksay btay ge...
+
+--for IPIP --Concerning the relationships between Intellect/Imagination and Openness to Experience and between 
+Emotional Stability and Neuroticism, they are highly similar constructs. Intellect/Imagination and Emotional 
+Stability were identified from factor analyses of ratings on individual personality trait adjectives, while 
+Openness and Neuroticism were identified from analyses of questionnaires.
+
+--start from find words according to question and its negativity or positivity,from paper and data from mam sania
+
+--findings from new paper(100,000)
+--agreeableness is all about dealing with other people,
+--extraversion is also like that
+--Conscientiousness is about adventures proper follower of shedule like..
+--Emotional Stability/Neuroticism (google Neuroticism is one of the Big Five higher-order 
+  personality traits in the study of psychology. Individuals who score high on neuroticism are 
+  more likely than average to be moody and to experience such feelings as anxiety, worry, fear, 
+  anger, frustration, envy, jealousy, guilt, depressed mood, and loneliness.)(sick lazy etc from excel and paper)
+--Intellect/Imagination/Openness  according to paper(100,000)
