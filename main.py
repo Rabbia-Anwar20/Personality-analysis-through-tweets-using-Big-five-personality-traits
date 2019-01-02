@@ -244,7 +244,7 @@ def solve_questions(data):
 #    open(f"u_a_json/{data['#AUTHID']}",'w').write(users_ansr.strip(','))
     open(f"u_a_json/{data['#AUTHID']}.json",'w').write(str(users_ansr))
     print('write')
-    set_trace()
+#    set_trace()
         
      
     
