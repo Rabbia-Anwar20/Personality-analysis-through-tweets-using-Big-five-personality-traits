@@ -211,7 +211,7 @@ def prob_range(s_a,w_p):
 
 
 def solve_questions(data):
-    users_ansr=''
+    users_ansr={}
     print(data)
 #    set_trace()
     for i in all_files:
@@ -237,11 +237,14 @@ def solve_questions(data):
         # divided by max becasue converting it into 0-1 range,
 #        set_trace()
         ansr=prob_range( sentiment_ansr , 0 if np.mean(word_probs) == 0 else np.mean(word_probs) / max(word_probs) )
-        users_ansr+=str(ansr)+','
+#        users_ansr+=str(ansr)+','
+        users_ansr[i]=ansr
         
         
-    open(f"u_a/{data['#AUTHID']}",'w').write(users_ansr.strip(','))
+#    open(f"u_a_json/{data['#AUTHID']}",'w').write(users_ansr.strip(','))
+    open(f"u_a_json/{data['#AUTHID']}.json",'w').write(str(users_ansr))
     print('write')
+    set_trace()
         
      
     
