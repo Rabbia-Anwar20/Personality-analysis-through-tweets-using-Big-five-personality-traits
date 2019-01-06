@@ -25,12 +25,31 @@ all_files=os.listdir("u_a_json/")
 #    a=json.load(f)
 
 #%%
-    
+
+traits_mapping={'1':'Extraversion','2':'Agreeableness','3':'Conscientiousness','4':'Neuroticism','5':'Openness'}
+neg_ansr_mapping={1:5,2:4,3:3,4:2,5:1}
+
+#%%
+from operator import itemgetter
 for i in all_files:
-    traits={}
+    traits={'Extraversion':0,'Agreeableness':0,'Conscientiousness':0,'Neuroticism':0,'Openness':0}
     with open(f'u_a_json/{i}','r') as f:
-        user=json.load(f)
+        user_ansrs=json.load(f)
     
+    
+    #work for +ve traits
+    for j in q_division['+']:
+        traits[ traits_mapping[ j[0] ] ] += user_ansrs[j]
+    
+    #work for +ve traits    
+    for j in q_division['-']:
+        traits[ traits_mapping[ j[0] ] ] += neg_ansr_mapping[ user_ansrs[j] ]
+    
+    print(traits)
+    
+    with open(f'users_classification/{i}','w') as f:
+        json.dump(traits,f)
+#    break
     
     
     
