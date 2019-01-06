@@ -242,8 +242,10 @@ def solve_questions(data):
         
         
 #    open(f"u_a_json/{data['#AUTHID']}",'w').write(users_ansr.strip(','))
-    open(f"u_a_json/{data['#AUTHID']}.json",'w').write(str(users_ansr))
-    print('write')
+    with open(f"u_a_json/{data['#AUTHID']}.json",'w') as f:
+        json.dump(users_ansr,f)
+#        open(f"u_a_json/{data['#AUTHID']}.json",'w').write(str(users_ansr))
+        print('write')
 #    set_trace()
         
      
@@ -263,7 +265,7 @@ df_data.apply(solve_questions,axis=1)
 
 # In[ ]:
 
-print(2)
+print(25454)
 
 # In[]:
 
