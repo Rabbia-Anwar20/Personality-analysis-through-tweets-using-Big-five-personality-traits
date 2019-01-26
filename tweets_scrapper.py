@@ -37,7 +37,7 @@ api=tp.API(auth)
 # In[22]:
 
 
-user=api.get_user('maroofkay')
+user=api.get_user('56')
 
 
 # In[23]:
@@ -51,6 +51,11 @@ print(user.screen_name)
 
 print(user.name)
 
+#%%
+for i in range(50000,50005):
+    user=api.get_user(i)
+    print(user.name)
+
 
 # In[25]:
 
@@ -61,7 +66,7 @@ print(user.statuses_count)
 # In[26]:
 
 
-# print(user.status._json)
+#print(user.status._json)
 
 
 # In[27]:
@@ -69,19 +74,20 @@ print(user.statuses_count)
 
 # user._json
 
-
+#%%
+from pprint import pprint
 # In[28]:
 
 
-# all_tweets=api.user_timeline('maroofkay',page=20)
-# all_tweets=tp.Cursor(api.user_timeline,id='maroofkay').items()
+#all_tweets=api.user_timeline('7f3bfec0b7228d0900b01fbc8ce9d59f',page=20)
+ all_tweets=tp.Cursor(api.user_timeline,id='1165').items()
 # len(all_tweets)
-
+print(list(all_tweets))
 
 # In[14]:
 
 
-users_list=['myounus006','thebethanyjane','sophiethesmurfy','ZuberiSpeaks','ThestoryofJS','mahatweetz','ZaraLouU','notesfromarshi','ThisIsKristin_','MichaelDewey99','joansenio1','holtbt']
+users_list=['thebethanyjane','sophiethesmurfy','ZuberiSpeaks','ThestoryofJS','mahatweetz','ZaraLouU','notesfromarshi','ThisIsKristin_','MichaelDewey99','joansenio1','holtbt']
 
 
 # In[7]:

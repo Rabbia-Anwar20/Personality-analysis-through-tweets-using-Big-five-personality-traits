@@ -39,7 +39,7 @@ print(X.shape)
 
 #%%
 from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 #%% apply xgboost
 import xgboost as xgb
@@ -48,7 +48,7 @@ predictions=xgb_regr.predict(X_test)
 
 #%% apply randomforest
 from sklearn.ensemble import RandomForestRegressor
-rf=RandomForestRegressor(n_estimators=10,random_state=42)
+rf=RandomForestRegressor(n_estimators=1000,random_state=42)
 rf.fit(X_train,y_train)
 pred=rf.predict(X_test)
 #%%
@@ -64,4 +64,50 @@ pred=lr.predict(X_test)
 #%% check accuracy
 from sklearn.metrics import r2_score
 print(r2_score(y_test,pred))
+
+#%% plot on graph
+import matplotlib.pyplot as plt
+plt.plot(range(len(y_test)),y_test)
+plt.show()
+print()
+plt.plot(range(len(pred)),pred)
+plt.show()
+
+#%%checking NN
+from keras.models import Sequential
+from keras.layers import Dense
+from keras import losses
+from keras import activations
+
+model=Sequential()
+
+#%%
+model.add(Dense(X.shape[1],activation=activations.relu,input_shape=(X.shape[1],)))
+model.add(Dense(50,activation=activations.relu))
+model.add(Dense(50,activation=activations.relu))
+model.add(Dense(5,activation=activations.relu))
+
+model.compile(optimizer='adam',loss=losses.mean_absolute_error)
+
+model.fit(X_train,y_train,verbose=2,epochs=100)
+nn_pred=model.predict(X_test)
+print(r2_score(y_test,nn_pred))
+
+#%%SVM
+from sklearn.svm import SVR
+reg=SVR()
+reg.fit(X_train,y_train)
+svm_pred=reg.predict(X_test)
+print(r2_score(y_test,svm_pred))
+
+#%%
+from sklearn.tree import DecisionTreeRegressor
+reg=DecisionTreeRegressor()
+reg.fit(X_train,y_train)
+tree_pred=reg.predict(X_test)
+print(r2_score(y_test,tree_pred))
+
+
+
+
 
