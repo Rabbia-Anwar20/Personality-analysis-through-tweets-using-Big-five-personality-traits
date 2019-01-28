@@ -176,11 +176,11 @@ from math import isnan
 
 def sentiment_range(value):
     if -1 <= value <= -0.01:
-        return -1
+        return value
     elif -0.01 < value < 0.01:
         return 0
     elif 0.01 <= value <= 1:
-        return 1
+        return value
 
 
 # In[66]:
@@ -188,18 +188,18 @@ def sentiment_range(value):
 
 def prob_range(s_a,w_p):
     if s_a < 0:
-        if 1 >= w_p > 0.5:
+        if -1 <= s_a*w_p < -0.5:
             return 1
-        elif 0.5 >= w_p >= 0:
+        elif -0.5 <= s_a*w_p <= 0:
             return 2
         
     elif s_a == 0:
         return 3
     
     elif s_a > 0:
-        if 0 <= w_p <= 0.5:
+        if 0 <= s_a*w_p <= 0.5:
             return 4
-        elif 0.5 < w_p <= 1:
+        elif 0.5 < s_a*w_p <= 1:
             return 5
         
 #     if isnan(w_p) :
