@@ -24,7 +24,7 @@ from pprint import pprint
 
 # In[44]:
 
-
+#counting word function
 import re
 count_words=lambda x:len(re.findall(r'\w+',x))
 
@@ -165,8 +165,6 @@ open(f"aw.txt",'w').write('1,2,4')
 
 # In[64]:
 
-
-import numpy as np
 from pdb import set_trace
 from math import isnan
 
