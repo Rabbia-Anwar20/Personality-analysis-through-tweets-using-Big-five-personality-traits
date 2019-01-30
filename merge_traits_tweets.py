@@ -41,8 +41,12 @@ essays['Openness']=0
 
 for i in all_files:
     data=0
+    
     with open(f'users_classification/{i}','r') as f:
         data=json.load(f)
+        #convert values to %
+        data={ t: ( ( data[t] / 50 ) * 100 ) for t in data }
+    
     essays[essays['#AUTHID']==i.strip('.json')] = essays[essays['#AUTHID']==i.strip('.json')].assign(**data)
 
 
